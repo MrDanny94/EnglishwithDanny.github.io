@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>English Quiz BMU</title>
+  <meta charset="UTF-8">
+</head>
+<body>
+
+<h1>English Quiz</h1>
+
+<!-- Câu trắc nghiệm -->
+<p>1. She ___ to school yesterday.</p>
+<input type="radio" name="q1" value="a"> go<br>
+<input type="radio" name="q1" value="b"> went<br>
+<input type="radio" name="q1" value="c"> gone<br>
+
+<!-- Câu tự luận -->
+<p>2. Rewrite: "I don’t like coffee"</p>
+<input type="text" id="q2">
+
+<br><br>
+<button onclick="checkAnswers()">Submit</button>
+
+<p id="result"></p>
+
+<script>
+function checkAnswers() {
+  let score = 0;
+
+  // Câu 1
+  let q1 = document.querySelector('input[name="q1"]:checked');
+  if (q1 && q1.value === "b") {
+    score++;
+  }
+
+  // Câu 2
+  let q2 = document.getElementById("q2").value.toLowerCase();
+  if (q2.includes("i dislike coffee")) {
+    score++;
+  }
+
+  document.getElementById("result").innerHTML =
+    "Your score: " + score + "/2";
+}
+</script>
+
+</body>
+</html>
